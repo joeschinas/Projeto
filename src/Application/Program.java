@@ -9,6 +9,7 @@ import entities.Product;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import service.ProductService;
 
 public class Program {
    
@@ -38,5 +39,9 @@ public class Program {
     names.forEach(System.out::println);
     
     list.forEach(System.out::println);
+    ProductService ps = new ProductService();
+    Double result = ps.filterProduct(list, p->p.getName().charAt(0)=='T');
+    
+        System.out.println("Resultado :"+String.format("%.2f", result));
     }
 }
